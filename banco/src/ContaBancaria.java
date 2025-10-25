@@ -2,29 +2,43 @@ public class ContaBancaria {
     private double saldo;
 
 
+    public ContaBancaria(double saldo){
+        this.saldo = saldo;
+    }
+
     public double getSaldo(){
         return this.saldo;
     }
 
     public void depositar(double valor) {
-        this.saldo = this.saldo + valor;
-        if (this.saldo > 0){
-            System.out.println("Saldo positivo:" + saldo);
+        if (valor > 0){
+            this.saldo = this.saldo + valor;
+            System.out.println("Deposito efetuado com sucesso!");
         }
-
-        else{
-            System.out.println("Saldo negativo:" + saldo);
+        else {
+            System.out.println("Valor a ser depositado inválido");
         }
     }
 
     public void depositar(int valor) {
-        this.saldo = this.saldo + valor;
-        if (this.saldo > 0){
-            System.out.println("Saldo positivo:" + saldo);
+        if (valor > 0){
+            this.saldo = this.saldo + valor;
+            System.out.println("Deposito efetuado com sucesso!");
         }
+        else {
+            System.out.println("Valor a ser depositado inválido");
+        }
+    }
 
+    public boolean sacar( double valor) {
+
+        if (valor > this.saldo) {
+            System.out.println("Erro! Saldo insuficiente para saque.");
+            return false;
+        }
         else{
-            System.out.println("Saldo negativo:" + saldo);
+            this.saldo = this.saldo - valor;
+            return true;
         }
     }
 }
